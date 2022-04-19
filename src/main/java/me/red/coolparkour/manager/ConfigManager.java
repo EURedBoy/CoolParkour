@@ -62,15 +62,17 @@ public class ConfigManager {
             StringFile.put(parkourName,file);
         }
 
-            try {
-                file.createNewFile();
-                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "The file has been created");
-            } catch (IOException e) {
-                Bukkit.getServer().getConsoleSender()
-                        .sendMessage(ChatColor.RED + "Could not create file");
-            }
+        try {
+            file.createNewFile();
+            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "The file has been created");
+        } catch (IOException e) {
+            Bukkit.getServer().getConsoleSender()
+                    .sendMessage(ChatColor.RED + "Could not create file");
+        }
 
         fileConfiguration = YamlConfiguration.loadConfiguration(file);
+
+        fileConfiguration.set("Name",parkourName);
 
         StringFileCFG.put(parkourName,fileConfiguration);
         StringFile.put(parkourName,file);

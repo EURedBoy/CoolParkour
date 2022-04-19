@@ -1,6 +1,7 @@
 package me.red.coolparkour.manager;
 
 import me.red.coolparkour.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -10,7 +11,7 @@ import java.util.Set;
 
 public class CheckPointManager {
     private static final Main plugin = Main.Instance();
-    private static ConfigManager configManager = plugin.configManager;
+    private static final ConfigManager configManager = plugin.configManager;
     private static Set<String> keys;
 
     public static void setStartCheckPoint(String parkourName, Location loc) {
@@ -77,7 +78,7 @@ public class CheckPointManager {
                     && file.get(path + "z").equals((int)loc.getZ())
                     && file.get(path + "world").equals(loc.getWorld().getName())) {
 
-                String fileName = file.getName().replaceAll(".yml","");
+                String fileName = file.getString("Name");
 
                 plugin.StringParkourHashMap.get(fileName).Start(p);
 

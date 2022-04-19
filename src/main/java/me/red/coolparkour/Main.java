@@ -5,6 +5,8 @@ import me.red.coolparkour.listeners.onPlayerQuit;
 import me.red.coolparkour.listeners.walkOnPressureListener;
 import me.red.coolparkour.manager.ConfigManager;
 import me.red.coolparkour.manager.ParkourManager;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
@@ -30,6 +32,8 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new walkOnPressureListener(),this);
         getServer().getPluginManager().registerEvents(new onPlayerQuit(),this);
 
+        taskRepete();
+
         saveDefaultConfig();
 
     }
@@ -37,5 +41,18 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    private void taskRepete() {
+        Bukkit.getScheduler().runTaskTimer(this, () -> {
+
+            for (Player online : Bukkit.getOnlinePlayers()) {
+                if (UUIDParkourHashMap.get(online.getUniqueId()) == null) return;
+                if (online.getLocation().getY() > 30) return;
+                ParkourManager parkourManager = UUIDParkourHashMap.get(online.getUniqueId());
+                online.teleport(parkourManager.UUIDLocationHashMap.get(online.getUniqueId()));
+            }
+
+        }, 20L, 20L);
     }
 }

@@ -17,7 +17,7 @@ public class walkOnPressureListener implements Listener {
     public void onPressure(PlayerInteractEvent e) {
 
         if (!e.getAction().equals(Action.PHYSICAL)) return;
-        if (!(e.getClickedBlock().getType() == Material.GOLD_PLATE)) return;
+        if (!(e.getClickedBlock().getType() == Material.IRON_PLATE)) return;
 
         Player p = e.getPlayer();
 

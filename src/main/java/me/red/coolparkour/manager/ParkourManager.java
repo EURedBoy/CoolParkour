@@ -7,10 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class ParkourManager {
     private static final Main plugin = Main.Instance();
@@ -20,7 +17,7 @@ public class ParkourManager {
     public String name;
     public FileConfiguration fileCFG;
     private HashMap<UUID,Long> UUIDLongHashMap = new HashMap<>();
-    private HashMap<UUID, Location> UUIDLocationHashMap = new HashMap<>();
+    public HashMap<UUID, Location> UUIDLocationHashMap = new HashMap<>();
     private List<UUID> inGame = new ArrayList<>();
 
     public ParkourManager(String name, FileConfiguration fileCFG) {
@@ -53,7 +50,10 @@ public class ParkourManager {
         inGame.remove(p.getUniqueId());
 
         p.sendTitle(config.getString("end-title"),
-                "§eTempo: §6" + timeUtils.getTimeTook(UUIDLongHashMap.get(p.getUniqueId())));
+                "§eTempo: §6");
+
+        Message.send(p,config.getString("end-message").replaceAll("%time%",
+                timeUtils.getTimeTook(UUIDLongHashMap.get(p.getUniqueId()))));
 
         clearData(p.getUniqueId());
 

@@ -14,4 +14,5 @@ check-point: "&a(!) CheckPoint successfully setted"
 on-start-parkour: "&e(!) Parkour iniziato, Corri!"
 take-checkpoint: "&e(!) Hai preso un checkpoint dopo %time%" #<< Funziona solo qui il placeholder
 end-title: "&6Congratulazioni hai finito!"
+end-message: "&e(!) Hai finito in %time%"
 
