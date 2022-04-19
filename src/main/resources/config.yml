@@ -1,0 +1,17 @@
+
+
+console-error: "&c(!) Only player command"
+error-no-permission: "&c(!) You don't have permission"
+error-args: "&c(!) Args lenght insufficient"
+error-setup-start: "&c(!) Please, setup start and end parkour before checkpoints"
+successfully-created: "&a(!) Parkour successfully created"
+start-point: "&a(!) Start point successfully setted"
+end-point: "&a(!) End point successfully setted"
+check-point: "&a(!) CheckPoint successfully setted"
+
+#<----ParkourMessage---->
+
+on-start-parkour: "&e(!) Parkour iniziato, Corri!"
+take-checkpoint: "&e(!) Hai preso un checkpoint dopo %time%" #<< Funziona solo qui il placeholder
+end-title: "&6Congratulazioni hai finito!"
+

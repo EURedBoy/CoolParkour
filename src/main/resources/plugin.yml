@@ -1,0 +1,8 @@
+name: CoolParkour
+version: '${project.version}'
+main: me.red.coolparkour.Main
+authors: [ Red ]
+description: Parkour plugin
+commands:
+  parkour:
+    description: SUSSY
